@@ -779,7 +779,7 @@ export default function App() {
               const element = document.querySelector('#apply');
               if (element) {
                 const isMobile = window.innerWidth < 768;
-                const offset = isMobile ? 400 : 0; // 모바일에서 20행(약 400px) 아래로 이동
+                const offset = isMobile ? 100 : 0; // 모바일에서 5행(약 100px) 아래로 이동
                 const elementPosition = element.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset + offset;
                 window.scrollTo({
