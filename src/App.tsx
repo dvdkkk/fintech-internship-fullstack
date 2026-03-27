@@ -546,10 +546,11 @@ export default function App() {
           viewport={{ once: true, margin: "-50px" }}
           className="max-w-6xl mx-auto px-6"
         >
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="flex flex-col gap-16">
+            {/* Support (Moved to top) */}
             <div>
               <h2 className="text-3xl font-bold mb-8">실전 역량 키우는 밀착 지원</h2>
-              <div className="grid sm:grid-cols-2 gap-6">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
                   { icon: Monitor, title: "성취도별 학습 관리", desc: "구름 LXP를 통한 학습 현황 모니터링 및 취약 분야 보완" },
                   { icon: MessageSquare, title: "언제든 가능한 질문", desc: "실시간 질문, 게시판, AI 튜터를 통해 궁금증 해결" },
@@ -570,25 +571,26 @@ export default function App() {
                 ))}
               </div>
             </div>
-            
+
+            {/* Education Center (Moved to bottom) */}
             <div className="bg-gray-50 p-10 rounded-3xl border border-gray-100">
               <h2 className="text-3xl font-bold mb-4">언제든 집중하기 좋은<br/>역삼역 1분 거리 교육장</h2>
               <p className="text-gray-600 mb-8 break-keep">
                 교육생은 강남 교육장 회의실을 무료로 이용할 수 있습니다.<br/>
                 <span className="text-sm text-gray-500">(위치: 서울 강남구 테헤란로 145 13, 14층)</span>
               </p>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
-                  <div className="aspect-video bg-gray-200 rounded-xl overflow-hidden">
+                  <div className="h-80 bg-gray-200 rounded-2xl overflow-hidden shadow-lg">
                     <img src="https://postfiles.pstatic.net/MjAyNjAyMTNfNDMg/MDAxNzcwOTY4NDUxNjE5.591OWwUJSnBWA9DwlmaYSoDSYpAjriX0X57uKfwjdy4g.Jqib9AJzXW_lgPd-DoNFY5Gf3SzwgQm1w7YGZWaTHAQg.PNG/techup_learning_place_03.png?type=w966" alt="Lounge" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                   </div>
-                  <span className="text-center font-bold text-gray-800">라운지</span>
+                  <span className="text-center font-bold text-gray-800 text-lg">라운지</span>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <div className="aspect-video bg-gray-200 rounded-xl overflow-hidden">
+                  <div className="h-80 bg-gray-200 rounded-2xl overflow-hidden shadow-lg">
                     <img src="https://postfiles.pstatic.net/MjAyNjAyMTNfMTg2/MDAxNzcwOTY4NDUxNjEy.8amY2OKWNQ5xGWpz8qF3nEuUoujNVrKxq9-j9E101G0g._kNERBC0F2uyAJiWEvauAz3uZZQ2s4XTrrOWTU0uEHog.PNG/techup_learning_place_05.png?type=w966" alt="Meeting Room" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                   </div>
-                  <span className="text-center font-bold text-gray-800">회의실</span>
+                  <span className="text-center font-bold text-gray-800 text-lg">회의실</span>
                 </div>
               </div>
             </div>
@@ -777,7 +779,7 @@ export default function App() {
               const element = document.querySelector('#apply');
               if (element) {
                 const isMobile = window.innerWidth < 768;
-                const offset = isMobile ? 400 : 0; // 모바일에서 총 20행(약 400px) 아래로 이동
+                const offset = isMobile ? 100 : 0; // 모바일에서 5행(약 100px) 아래로 이동
                 const elementPosition = element.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset + offset;
                 window.scrollTo({
