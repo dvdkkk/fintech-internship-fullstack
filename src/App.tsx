@@ -71,7 +71,14 @@ export default function App() {
                     key={item.name} 
                     href={item.href} 
                     className="hover:text-blue-600 transition-colors py-2"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsMenuOpen(false);
+                      const element = document.querySelector(item.href);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
                   >
                     {item.name}
                   </a>
