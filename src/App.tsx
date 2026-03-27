@@ -674,64 +674,64 @@ export default function App() {
           </div>
 
           {/* Right Form */}
-          <div className="bg-white rounded-3xl p-8 md:p-10 shadow-2xl">
-            <h3 className="text-2xl font-extrabold text-black mb-8 flex items-center gap-2">
+          <div className="bg-white rounded-3xl p-6 md:p-8 shadow-2xl">
+            <h3 className="text-2xl font-extrabold text-black mb-6 flex items-center gap-2">
               빠른 교육상담 신청 <span className="w-2 h-2 rounded-full bg-red-600"></span>
             </h3>
             
-            <form className="space-y-5">
+            <form className="space-y-4">
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">과정명</label>
+                <label className="block text-sm font-bold text-gray-700 mb-1">과정명</label>
                 <input 
                   type="text" 
                   readOnly 
                   value="핀테크 인턴쉽-풀스택" 
-                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-gray-800 font-bold focus:outline-none" 
+                  className="w-full px-3 py-2 rounded-xl bg-gray-50 border border-gray-200 text-gray-800 font-bold focus:outline-none" 
                 />
               </div>
               
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">이름</label>
+                  <label className="block text-sm font-bold text-gray-700 mb-1">이름</label>
                   <input 
                     type="text" 
                     placeholder="홍길동" 
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all placeholder:text-gray-400 font-medium" 
+                    className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all placeholder:text-gray-400 font-medium" 
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">나이</label>
+                  <label className="block text-sm font-bold text-gray-700 mb-1">나이</label>
                   <input 
                     type="text" 
                     placeholder="예: 30" 
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all placeholder:text-gray-400 font-medium" 
+                    className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all placeholder:text-gray-400 font-medium" 
                   />
                 </div>
               </div>
               
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">연락처</label>
+                <label className="block text-sm font-bold text-gray-700 mb-1">연락처</label>
                 <input 
                   type="text" 
                   placeholder="010-0000-0000" 
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all placeholder:text-gray-400 font-medium" 
+                  className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all placeholder:text-gray-400 font-medium" 
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">문의내용</label>
+                <label className="block text-sm font-bold text-gray-700 mb-1">문의내용</label>
                 <textarea 
                   placeholder="궁금하신 점을 자유롭게 적어주세요." 
-                  rows={3} 
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all resize-none placeholder:text-gray-400 font-medium"
+                  rows={2} 
+                  className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all resize-none placeholder:text-gray-400 font-medium"
                 ></textarea>
               </div>
               
-              <div className="flex items-center justify-between pt-2">
+              <div className="flex items-center justify-between pt-1">
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input 
                     type="checkbox" 
-                    className="w-5 h-5 rounded border-gray-300 text-red-600 focus:ring-red-600 accent-red-600" 
+                    className="w-4 h-4 rounded border-gray-300 text-red-600 focus:ring-red-600 accent-red-600" 
                     defaultChecked 
                   />
                   <span className="text-sm font-bold text-gray-800">개인정보 수집 및 이용에 동의합니다.</span>
@@ -743,7 +743,7 @@ export default function App() {
               
               <button 
                 type="button" 
-                className="w-full bg-[#111111] text-white font-bold text-lg py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-black transition-colors mt-6"
+                className="w-full bg-[#111111] text-white font-bold text-lg py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-black transition-colors mt-4"
               >
                 무료상담 신청하기 <Send className="w-5 h-5" />
               </button>
