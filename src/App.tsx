@@ -769,7 +769,24 @@ export default function App() {
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
         <div className="max-w-6xl mx-auto">
-          <a href="#apply" className="block w-full bg-blue-600 text-white py-3 md:py-4 text-center font-bold text-base md:text-lg hover:bg-blue-700 transition-colors shadow-lg rounded-xl">
+          <a 
+            href="#apply" 
+            className="block w-full bg-blue-600 text-white py-3 md:py-4 text-center font-bold text-base md:text-lg hover:bg-blue-700 transition-colors shadow-lg rounded-xl"
+            onClick={(e) => {
+              e.preventDefault();
+              const element = document.querySelector('#apply');
+              if (element) {
+                const isMobile = window.innerWidth < 768;
+                const offset = isMobile ? 100 : 0; // 모바일에서 5행(약 100px) 아래로 이동
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset + offset;
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: "smooth"
+                });
+              }
+            }}
+          >
             상담 신청하기
           </a>
         </div>
