@@ -591,7 +591,7 @@ export default function App() {
           viewport={{ once: true, margin: "-50px" }}
           className="max-w-6xl mx-auto px-6"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">선발 절차</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">선발절차</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
               { step: "01", title: "지원서 작성", desc: "수강하고 싶은 과정의 지원서를 작성합니다." },
