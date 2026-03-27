@@ -50,10 +50,27 @@ export default function App() {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X /> : <Menu />}
-          </button>
+          {/* Mobile Apply Button */}
+          <a 
+            href="#apply" 
+            className="md:hidden bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse hover:animate-none transition-all"
+            onClick={(e) => {
+              e.preventDefault();
+              const element = document.querySelector('#apply');
+              if (element) {
+                const isMobile = window.innerWidth < 768;
+                const offset = isMobile ? 400 : 0; // 모바일에서 20행(약 400px) 아래로 이동
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset + offset;
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: "smooth"
+                });
+              }
+            }}
+          >
+            상담신청
+          </a>
         </div>
 
         {/* Mobile Menu */}
