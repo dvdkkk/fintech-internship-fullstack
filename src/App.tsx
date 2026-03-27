@@ -11,6 +11,7 @@ import {
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const navItems = [
     { name: "과정요약", href: "#hero" },
@@ -138,17 +139,17 @@ export default function App() {
             className="text-5xl md:text-7xl mb-6 tracking-tight leading-tight"
           >
             <span 
-              className="font-gmarket text-[#3752A6]"
+              className="font-gmarket text-[#3752A6] text-4xl md:text-6xl"
             >
               핀테크 인턴십 코스
             </span> <br className="hidden md:block" />
-            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">풀스택 개발자 과정</span>
+            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 text-4xl md:text-6xl">풀스택 개발자 과정</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto font-medium break-keep"
+            className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto font-medium break-keep"
           >
             단순 구현을 넘어 기획부터 배포, 운영까지 책임지는<br />자기 주도형 육각형 개발자로 성장하세요.
           </motion.p>
@@ -162,7 +163,7 @@ export default function App() {
             <div className="bg-white border border-gray-200 p-6 rounded-2xl shadow-sm flex flex-col items-center">
               <Calendar className="w-8 h-8 text-blue-600 mb-3" />
               <div className="text-sm text-gray-500 font-medium mb-1">지원 일정</div>
-              <div className="font-bold text-gray-900">26. 03. 11(수) - 04. 19(일)</div>
+              <div className="font-bold text-gray-900">26. 03. 11(수) - 04. 27(월)</div>
             </div>
             <div className="bg-white border border-gray-200 p-6 rounded-2xl shadow-sm flex flex-col items-center">
               <BookOpen className="w-8 h-8 text-indigo-600 mb-3" />
@@ -272,7 +273,7 @@ export default function App() {
           viewport={{ once: true, margin: "-50px" }}
           className="max-w-6xl mx-auto px-6"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">성장을 만들어 줄 특별한 혜택</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">특별한 혜택</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
               { icon: Award, title: "훈련장려금", desc: "최대 300,000원" },
@@ -519,7 +520,7 @@ export default function App() {
           </div>
 
           <div className="mb-6">
-            <h3 className="text-2xl font-bold mb-4 text-center">취업 기회까지 확실한 기업 연계 코스</h3>
+            <h3 className="text-2xl font-bold mb-4 text-center">취업기회 확실한 기업 연계 코스</h3>
             <div className="grid md:grid-cols-3 gap-3">
               {[
                 { title: "대표 핀테크 기업 협력", desc: "국내 대표 핀테크 기업과 함께하는 실무 중심 커리큘럼" },
@@ -653,7 +654,7 @@ export default function App() {
             <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-black tracking-tight">
               망설이지 마세요.<br/>
               국비교육 전문가가<br/>
-              친절하게 안내해드립니다.
+              무료로 안내해드립니다.
             </h2>
             <p className="text-lg text-black mb-12 font-medium break-keep">
               국비지원 자격 여부부터 취업 및 교육과정까지<br/>
@@ -692,78 +693,111 @@ export default function App() {
               빠른 교육상담 신청 <span className="w-2 h-2 rounded-full bg-red-600"></span>
             </h3>
             
-            <form className="space-y-4">
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1">과정명</label>
-                <input 
-                  type="text" 
-                  readOnly 
-                  value="핀테크 인턴쉽-풀스택" 
-                  className="w-full px-3 py-2 rounded-xl bg-gray-50 border border-gray-200 text-gray-800 font-bold focus:outline-none" 
-                />
-              </div>
-              
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-1">이름</label>
-                  <input 
-                    type="text" 
-                    placeholder="홍길동" 
-                    className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all placeholder:text-gray-400 font-medium" 
-                  />
+            <form 
+              className="space-y-4"
+              onSubmit={async (e) => {
+                e.preventDefault();
+                setIsSubmitted(true);
+                const formData = new FormData(e.currentTarget);
+                const data = {
+                  _form_id: "914168973e93bda60f4eac1e7cbe1449",
+                  name: formData.get('name'),
+                  message: formData.get('message')
+                };
+                
+                fetch("https://inputhaven.com/api/v1/submit", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(data),
+                  keepalive: true
+                }).catch(console.error);
+              }}
+            >
+              {isSubmitted ? (
+                <div className="text-center py-10 text-xl font-bold text-black">
+                  상담 신청이 완료되었습니다!
                 </div>
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-1">나이</label>
-                  <input 
-                    type="text" 
-                    placeholder="예: 30" 
-                    className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all placeholder:text-gray-400 font-medium" 
-                  />
-                </div>
-              </div>
-              
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1">연락처</label>
-                <input 
-                  type="text" 
-                  placeholder="010-0000-0000" 
-                  className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all placeholder:text-gray-400 font-medium" 
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1">문의내용</label>
-                <textarea 
-                  placeholder="궁금하신 점을 자유롭게 적어주세요." 
-                  rows={2} 
-                  className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all resize-none placeholder:text-gray-400 font-medium"
-                ></textarea>
-              </div>
-              
-              <div className="flex items-center justify-between pt-1">
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input 
-                    type="checkbox" 
-                    className="w-4 h-4 rounded border-gray-300 text-red-600 focus:ring-red-600 accent-red-600" 
-                    defaultChecked 
-                  />
-                  <span className="text-sm font-bold text-gray-800">개인정보 수집 및 이용에 동의합니다.</span>
-                </label>
-                <button type="button" className="text-sm text-gray-500 underline underline-offset-2 hover:text-gray-800 font-medium">
-                  자세히 보기
-                </button>
-              </div>
-              
-              <button 
-                type="button" 
-                className="w-full bg-[#111111] text-white font-bold text-lg py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-black transition-colors mt-4"
-              >
-                무료상담 신청하기 <Send className="w-5 h-5" />
-              </button>
-              
-              <p className="text-center text-sm text-gray-500 mt-4 font-medium">
-                개인정보는 상담 목적으로만 사용되며 안전하게 보호됩니다.
-              </p>
+              ) : (
+                <>
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-1">과정명</label>
+                    <input 
+                      type="text" 
+                      readOnly 
+                      value="핀테크 인턴쉽-풀스택" 
+                      className="w-full px-3 py-2 rounded-xl bg-gray-50 border border-gray-200 text-gray-800 font-bold focus:outline-none" 
+                    />
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-1">이름</label>
+                      <input 
+                        type="text" 
+                        name="name"
+                        placeholder="홍길동" 
+                        required
+                        className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all placeholder:text-gray-400 font-medium" 
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-1">나이</label>
+                      <input 
+                        type="text" 
+                        placeholder="예: 30" 
+                        required
+                        className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all placeholder:text-gray-400 font-medium" 
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-1">연락처</label>
+                    <input 
+                      type="text" 
+                      placeholder="010-0000-0000" 
+                      required
+                      className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all placeholder:text-gray-400 font-medium" 
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-1">문의내용</label>
+                    <textarea 
+                      name="message"
+                      placeholder="궁금하신 점을 자유롭게 적어주세요." 
+                      rows={2} 
+                      className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all resize-none placeholder:text-gray-400 font-medium"
+                    ></textarea>
+                  </div>
+                  
+                  <div className="flex items-center justify-between pt-1">
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <input 
+                        type="checkbox" 
+                        className="w-4 h-4 rounded border-gray-300 text-red-600 focus:ring-red-600 accent-red-600" 
+                        defaultChecked 
+                        required
+                      />
+                      <span className="text-sm font-bold text-gray-800">개인정보 수집 및 이용에 동의합니다.</span>
+                    </label>
+                    <button type="button" className="text-sm text-gray-500 underline underline-offset-2 hover:text-gray-800 font-medium">
+                      자세히 보기
+                    </button>
+                  </div>
+                  
+                  <button 
+                    type="submit" 
+                    className="w-full bg-[#111111] text-white font-bold text-lg py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-black transition-colors mt-4"
+                  >
+                    무료상담 신청하기 <Send className="w-5 h-5" />
+                  </button>
+                  
+                  <p className="text-center text-sm text-gray-500 mt-4 font-medium">
+                    개인정보는 상담 목적으로만 사용되며 안전하게 보호됩니다.
+                  </p>
+                </>
+              )}
             </form>
           </div>
         </motion.div>
