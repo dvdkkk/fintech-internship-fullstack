@@ -654,7 +654,7 @@ export default function App() {
             <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-black tracking-tight">
               망설이지 마세요.<br/>
               국비교육 전문가가<br/>
-              무료로 안내해드립니다.
+              무료 상담해드립니다.
             </h2>
             <p className="text-lg text-black mb-12 font-medium break-keep">
               국비지원 자격 여부부터 취업 및 교육과정까지<br/>
