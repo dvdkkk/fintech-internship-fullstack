@@ -701,7 +701,10 @@ export default function App() {
                 const formData = new FormData(e.currentTarget);
                 const data = {
                   _form_id: "914168973e93bda60f4eac1e7cbe1449",
+                  course: formData.get('course'),
                   name: formData.get('name'),
+                  age: formData.get('age'),
+                  phone: formData.get('phone'),
                   message: formData.get('message')
                 };
                 
@@ -716,6 +719,13 @@ export default function App() {
               {isSubmitted ? (
                 <div className="text-center py-10 text-xl font-bold text-black">
                   상담 신청이 완료되었습니다!
+                  <button 
+                    type="button"
+                    onClick={() => setIsSubmitted(false)}
+                    className="block w-full mt-4 bg-black text-white py-3 rounded-xl font-bold hover:bg-gray-800 transition-colors"
+                  >
+                    추가 문의하기
+                  </button>
                 </div>
               ) : (
                 <>
@@ -723,8 +733,9 @@ export default function App() {
                     <label className="block text-sm font-bold text-gray-700 mb-1">과정명</label>
                     <input 
                       type="text" 
+                      name="course"
                       readOnly 
-                      value="핀테크 인턴쉽-풀스택" 
+                      value="핀테크 인텁십 코스-풀스택" 
                       className="w-full px-3 py-2 rounded-xl bg-gray-50 border border-gray-200 text-gray-800 font-bold focus:outline-none" 
                     />
                   </div>
@@ -744,6 +755,7 @@ export default function App() {
                       <label className="block text-sm font-bold text-gray-700 mb-1">나이</label>
                       <input 
                         type="text" 
+                        name="age"
                         placeholder="예: 30" 
                         required
                         className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all placeholder:text-gray-400 font-medium" 
@@ -755,6 +767,7 @@ export default function App() {
                     <label className="block text-sm font-bold text-gray-700 mb-1">연락처</label>
                     <input 
                       type="text" 
+                      name="phone"
                       placeholder="010-0000-0000" 
                       required
                       className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all placeholder:text-gray-400 font-medium" 
@@ -781,7 +794,24 @@ export default function App() {
                       />
                       <span className="text-sm font-bold text-gray-800">개인정보 수집 및 이용에 동의합니다.</span>
                     </label>
-                    <button type="button" className="text-sm text-gray-500 underline underline-offset-2 hover:text-gray-800 font-medium">
+                    <button 
+                      type="button" 
+                      className="text-sm text-gray-500 underline underline-offset-2 hover:text-gray-800 font-medium"
+                      onClick={() => {
+                        const content = `개인정보 수집 및 이용 동의 (필수)
+핀테크인턴쉽코스 실시간온라인문의 신청을 위해 다음과 같이 개인정보를 수집 및 이용합니다.
+
+수집목적
+온라인문의
+
+수집항목
+이름, 나이, 연락처, 문의내용
+
+보유기간
+60일`;
+                        alert(content);
+                      }}
+                    >
                       자세히 보기
                     </button>
                   </div>
