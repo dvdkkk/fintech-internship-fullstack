@@ -71,20 +71,7 @@ export default function App() {
                     key={item.name} 
                     href={item.href} 
                     className="hover:text-blue-600 transition-colors py-2"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const element = document.querySelector(item.href);
-                      if (element) {
-                        const offset = 60; // 약 3행 정도의 높이
-                        const elementPosition = element.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - offset;
-                        window.scrollTo({
-                          top: offsetPosition,
-                          behavior: "smooth"
-                        });
-                      }
-                      setIsMenuOpen(false);
-                    }}
+                    onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
                   </a>
