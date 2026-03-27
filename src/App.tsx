@@ -71,7 +71,20 @@ export default function App() {
                     key={item.name} 
                     href={item.href} 
                     className="hover:text-blue-600 transition-colors py-2"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const element = document.querySelector(item.href);
+                      if (element) {
+                        const offset = 60; // 약 3행 정도의 높이
+                        const elementPosition = element.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - offset;
+                        window.scrollTo({
+                          top: offsetPosition,
+                          behavior: "smooth"
+                        });
+                      }
+                      setIsMenuOpen(false);
+                    }}
                   >
                     {item.name}
                   </a>
@@ -482,9 +495,9 @@ export default function App() {
             </div>
             <div className="bg-gray-800 rounded-3xl border border-gray-700 overflow-hidden">
               <img src="https://postfiles.pstatic.net/MjAyNjAzMjZfMjkw/MDAxNzc0NTA1NjQwNjMw.97ng_jouaFHb5yUYgVkB4luIwBrNQUYCY5TznUExU0Mg.OmjiNjtizRBb_t3Hjs1wyiwz0PtMt5nKjs9413Soh_Mg.JPEG/image_(39).jpg?type=w966" alt="구름 (goorm)" className="w-full h-48 object-cover" referrerPolicy="no-referrer" />
-              <div className="p-8">
-                <h3 className="text-2xl font-bold mb-6 text-indigo-400">구름 (goorm)</h3>
-                <ul className="space-y-4 text-gray-300">
+              <div className="p-4">
+                <h3 className="text-2xl font-bold mb-3 text-indigo-400">구름 (goorm)</h3>
+                <ul className="space-y-2 text-gray-300">
                   <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-indigo-500 shrink-0 mt-0.5" /> 고용노동부 인증 K-디지털 트레이닝 전문 훈련기관</li>
                   <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-indigo-500 shrink-0 mt-0.5" /> 국내 대표 AX(AI Transformation) 전문 기업</li>
                   <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-indigo-500 shrink-0 mt-0.5" /> 올해의 브랜드 대상 2024·2025 2년 연속 1위 수상</li>
@@ -494,9 +507,9 @@ export default function App() {
             </div>
           </div>
 
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold mb-8 text-center">취업 기회까지 확실한 기업 연계 코스</h3>
-            <div className="grid md:grid-cols-3 gap-6">
+          <div className="mb-6">
+            <h3 className="text-2xl font-bold mb-4 text-center">취업 기회까지 확실한 기업 연계 코스</h3>
+            <div className="grid md:grid-cols-3 gap-3">
               {[
                 { title: "대표 핀테크 기업 협력", desc: "국내 대표 핀테크 기업과 함께하는 실무 중심 커리큘럼" },
                 { title: "기업 연계 프로젝트", desc: "핀테크 기업의 실제 프로젝트 수행 기회 제공" },
@@ -514,8 +527,8 @@ export default function App() {
           </div>
 
           <div className="bg-gray-800 rounded-3xl border border-gray-700 overflow-hidden">
-            <div className="bg-gradient-to-r from-blue-900 to-indigo-900 p-8 text-left">
-              <h3 className="text-2xl font-bold mb-4">현직자와 함께하는 멘토링 데이</h3>
+            <div className="bg-gradient-to-r from-blue-900 to-indigo-900 p-4 text-left">
+              <h3 className="text-2xl font-bold mb-2">현직자와 함께하는 멘토링 데이</h3>
               <p className="text-blue-100 max-w-2xl break-keep">
                 국내를 대표하는 핀테크 기업의 현직자들과 매월 만납니다. 평소 취업 준비에 필요한 궁금증을 해결해보세요. 맞춤형 피드백을 통해 수강생 모두가 핀테크 인재로 성장할 수 있도록 돕습니다.
               </p>
