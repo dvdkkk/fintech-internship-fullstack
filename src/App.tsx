@@ -142,7 +142,7 @@ export default function App() {
               className="font-gmarket text-[#3752A6] text-4xl md:text-6xl"
             >
               핀테크 인턴십 코스
-            </span> <br className="hidden md:block" />
+            </span> <br />
             <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 text-4xl md:text-6xl">풀스택 개발자 과정</span>
           </motion.h1>
           <motion.p 
@@ -151,7 +151,9 @@ export default function App() {
             transition={{ delay: 0.2 }}
             className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto font-medium break-keep"
           >
-            단순 구현을 넘어 기획부터 배포, 운영까지 책임지는<br />자기 주도형 육각형 개발자로 성장하세요.
+            단순 구현을 넘어 기획부터<br />
+            배포, 운영까지 책임지는<br />
+            자기 주도형 육각형 개발자로 성장하세요.
           </motion.p>
 
           <motion.div 
@@ -308,9 +310,9 @@ export default function App() {
           <h2 className="text-3xl font-bold mb-12">이런 분들께 추천합니다</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              "디지털 금융에 흥미가 있거나 관련 역량을 갖춘 핀테크 전문가를 꿈꾸는 분",
+              "디지털 금융에 흥미 또는 관련 역량을 갖춘 핀테크 전문가를 꿈꾸는 분",
               "다양한 기술 스택을 실습 중심으로 익히고 바로 투입 가능한 실력을 쌓고 싶은 분",
-              "핀테크 기업 과제를 경험하며 직무 이해도와 커리어 연계성을 높이고 싶은 분"
+              "핀테크 기업과제 경험하며 직무 이해도와 커리어 연계성을 높이고 싶은 분"
             ].map((text, idx) => (
               <div key={idx} className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 text-left">
                 <CheckCircle2 className="w-8 h-8 text-blue-300 mb-4" />
@@ -407,7 +409,7 @@ export default function App() {
               </div>
             ))}
           </div>
-          <p className="text-center text-sm text-gray-400 mt-8">* 로드맵 및 커리큘럼은 교육 과정 운영 상황에 따라 일부 변경될 수 있습니다.</p>
+          <p className="text-left text-sm text-gray-400 mt-8">* 로드맵 및 커리큘럼은 교육 과정 운영 상황에 따라 일부 변경될 수 있습니다.</p>
         </motion.div>
       </section>
 
@@ -586,7 +588,7 @@ export default function App() {
 
             {/* Education Center (Moved to bottom) */}
             <div className="bg-gray-50 p-10 rounded-3xl border border-gray-100">
-              <h2 className="text-3xl font-bold mb-4">언제든 집중하기 좋은<br/>역삼역 1분 거리 교육장</h2>
+              <h2 className="text-3xl font-bold mb-4">집중하기 좋은<br/>역삼역 1분 거리 교육장</h2>
               <p className="text-gray-600 mb-8 break-keep">
                 교육생은 강남 교육장 회의실을 무료로 이용할 수 있습니다.<br/>
                 <span className="text-sm text-gray-500">(위치: 서울 강남구 테헤란로 145 13, 14층)</span>
@@ -824,7 +826,7 @@ export default function App() {
                   </button>
                   
                   <p className="text-center text-sm text-gray-500 mt-4 font-medium">
-                    개인정보는 상담 목적으로만 사용되며 안전하게 보호됩니다.
+                    개인정보는 상담 목적으로만 사용됩니다.
                   </p>
                 </>
               )}
