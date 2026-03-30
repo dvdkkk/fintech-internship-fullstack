@@ -509,7 +509,7 @@ export default function App() {
                 { title: "현직자 네트워킹 행사", desc: "전문가 만남 통해 최신 기술 및 업계 동향 파악" }
               ].map((item, idx) => (
                 <div key={idx} className={`p-6 rounded-2xl border ${item.highlighted ? 'bg-blue-900/30 border-blue-500/50' : 'bg-gray-800/50 border-gray-700/50'}`}>
-                  <h4 className={`font-bold text-lg mb-2 ${item.highlighted ? 'text-blue-200' : 'text-blue-300'}`}>{item.title}</h4>
+                  <h4 className={`font-bold text-lg mb-2 ${item.highlighted ? 'text-yellow-400' : 'text-blue-300'}`}>{item.title}</h4>
                   <p className="text-gray-400 text-sm break-keep">{item.desc}</p>
                 </div>
               ))}
