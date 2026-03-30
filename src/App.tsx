@@ -17,7 +17,6 @@ export default function App() {
     { name: "과정요약", href: "#hero" },
     { name: "교육비전&혜택", href: "#core-competencies" },
     { name: "커리큘럼", href: "#curriculum" },
-    { name: "강사진", href: "#instructor-section" },
     { name: "취업지원", href: "#partners" },
     { name: "교육환경", href: "#support" },
     { name: "선발 절차", href: "#selection-process" }
@@ -449,29 +448,6 @@ export default function App() {
                   <p className="text-gray-600 text-sm leading-relaxed break-keep">
                     프로젝트 최종 결과물을 발표해 실력을 평가 받습니다. 참여 기업에 실력을 인정받아 취업으로 연결시킬 있는 기회를 얻습니다. 또한 결과물은 포트폴리오로 활용할 수 있어 커리어 준비에 큰 자산이 됩니다.
                   </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Instructor */}
-            <div id="instructor-section" className="scroll-mt-20">
-              <h2 className="text-3xl font-bold mb-8">기술적 깊이와 경험을 겸비한 전문 강사</h2>
-              <div className="bg-gray-900 text-white rounded-3xl p-8 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full blur-3xl opacity-20 -mr-10 -mt-10"></div>
-                <div className="text-blue-400 font-bold mb-2">풀스택 강사</div>
-                <h3 className="text-3xl font-extrabold mb-4">배현모</h3>
-                <p className="text-gray-300 mb-8 leading-relaxed break-keep">
-                  AI를 활용한 체계적인 개발 방법을 연구하는 개발자입니다. 금융과 커머스 분야에서의 실무 경험을 바탕으로 도메인 이해와 아키텍처 지식을 공유합니다.
-                </p>
-                <div className="space-y-4 text-sm">
-                  <div className="flex gap-3">
-                    <span className="text-blue-400 font-bold shrink-0 w-10">현재</span>
-                    <span className="text-gray-300">구름 핀테크 인턴십 코스 풀스택 개발자 과정 강사<br/>현대캐피탈 Digital 기획실, IT 기획 및 아키텍트</span>
-                  </div>
-                  <div className="flex gap-3">
-                    <span className="text-gray-500 font-bold shrink-0 w-10">이전</span>
-                    <span className="text-gray-400">라포랩스, 커머스 서비스 백엔드 개발자<br/>우리FIS 카드정보부(현 우리카드), 금융 계정계 개발자</span>
-                  </div>
                 </div>
               </div>
             </div>
